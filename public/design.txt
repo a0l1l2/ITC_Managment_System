@@ -1,0 +1,15 @@
+Color Themes
+
+ - Light
+
+ - Dark
+    bg-color-1:#00215E
+    bg-color-2:#2C4E80
+    font-family: 'Rubik', sans-serif
+
+
+Font Sizes
+
+    - lg:2rem
+    - md:1.6rem
+    - sm:1.2rem

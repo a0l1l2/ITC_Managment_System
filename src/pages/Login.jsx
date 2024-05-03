@@ -1,5 +1,11 @@
+import Button from '../ui/Button';
+
 function Login() {
-	return <div>Log in</div>;
+	return (
+		<div>
+			<Button>Log in</Button>
+		</div>
+	);
 }
 
 export default Login;
