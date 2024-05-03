@@ -1,5 +1,5 @@
-function Form() {
-	return <div></div>;
+function Form({ children }) {
+	return <div>{children}</div>;
 }
 
 export default Form;
