@@ -1,5 +1,7 @@
+import styles from '../styles/Form.module.css';
+
 function Form({ children }) {
-	return <div>{children}</div>;
+	return <div className={styles.form}>{children}</div>;
 }
 
 export default Form;

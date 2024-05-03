@@ -1,0 +1,9 @@
+.input {
+	width: 60%;
+	background: none;
+	border: 1px solid var(--bg-color-2);
+	border-radius: 0.75rem;
+	padding: 1rem 1.5rem;
+	color: white;
+	font-size: var(--font-sm);
+}
