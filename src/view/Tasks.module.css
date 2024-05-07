@@ -16,6 +16,7 @@
 	background-color: var(--bg-color-1);
 	color: var(--ft-color-1);
 	font-weight: 600;
+	font-size: 1.2rem;
 	transition: all 150ms;
 }
 
@@ -26,6 +27,11 @@
 .body {
 	height: 25rem;
 	overflow-y: scroll;
+	border: 2px solid var(--bg-color-1);
+	border-top: none;
+	border-radius: 1rem;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 }
 
 .header {
@@ -33,6 +39,9 @@
 	grid-template-columns: repeat(6, 1fr);
 	padding: 1rem 1.5rem;
 	background-color: var(--bg-color-1);
+	border-radius: 1rem;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 	color: var(--ft-color-1);
 	text-align: center;
 }

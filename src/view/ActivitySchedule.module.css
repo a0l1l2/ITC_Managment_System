@@ -23,8 +23,13 @@
 }
 
 .body {
-	height: 27rem;
+	height: 30rem;
 	overflow-y: scroll;
+	border-top: none;
+	border: 2px solid var(--bg-color-1);
+	border-radius: 1rem;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 }
 
 .header {
@@ -34,6 +39,9 @@
 	background-color: var(--bg-color-1);
 	color: var(--ft-color-1);
 	text-align: center;
+	border-radius: 1rem;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
 .row {

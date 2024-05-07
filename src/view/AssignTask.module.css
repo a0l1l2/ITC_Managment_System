@@ -1,10 +1,12 @@
 .gridAssign {
 	height: 100%;
-	padding: 2rem;
+	padding: 2rem 3rem;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 3.5rem;
 	align-items: center;
+	border: 2px solid var(--bg-color-1);
+	border-radius: 1rem;
 }
 
 .input,
@@ -14,6 +16,8 @@
 	border: 2px solid var(--bg-color-1);
 	border-radius: 0.5rem;
 	padding: 0.5rem 1rem;
+	font-size: 1.2rem;
+	font-weight: 600;
 }
 
 .p {
@@ -37,6 +41,7 @@
 		color: var(--ft-color-1);
 		font-weight: 600;
 		transition: all 150ms;
+		font-size: 1.2rem;
 	}
 }
 
