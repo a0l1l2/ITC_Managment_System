@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--font-family: 'Rubik', sans-serif;
+	--bg-color-1: #2c4e80;
+	--bg-color-2: #0e46a3;
+	--bd-color-1: #9ac8cd;
+	--ft-color-1: #e1f7f5;
+	--ft-color-2: #9ac8cd;
+	--font-lg: 2rem;
+	--font-md: 1.6rem;
+	--font-sm: 1.2rem;
+}
+
+html {
+	font-size: 62.5%;
+	font-family: var(--font-family);
+}
+
+button {
+	font-family: var(--font-family);
+	cursor: pointer;
+}
+
+a.active {
+	background-color: var(--bg-color-2);
+}
+
+::-webkit-scrollbar {
+	background: none;
+	width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--bg-color-1);
+	border-radius: 1rem;
+}

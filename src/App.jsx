@@ -1,36 +1,27 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import AppLayout from './ui/AppLayout';
-import RegisterMember from './pages/RegisterMember';
-import AddTask from './pages/AddTask';
-import Schedule from './pages/Schedule';
+
+import Tasks from './view/Tasks';
+import Layout from './view/Layout';
+import ActivitySchedule from './view/ActivitySchedule';
+import AssignTask from './view/AssignTask';
 
 const router = createBrowserRouter([
 	{
-		element: <AppLayout />,
+		element: <Layout />,
 		children: [
 			{
-				element: <Dashboard />,
+				element: <Tasks />,
 				path: '/',
 			},
 			{
-				element: <RegisterMember />,
-				path: '/registermember',
+				element: <AssignTask />,
+				path: '/assigntask',
 			},
 			{
-				element: <AddTask />,
-				path: '/addtask',
-			},
-			{
-				element: <Schedule />,
-				path: '/schedule',
+				element: <ActivitySchedule />,
+				path: '/activityschedule',
 			},
 		],
-	},
-	{
-		element: <Login />,
-		path: 'login',
 	},
 ]);
 

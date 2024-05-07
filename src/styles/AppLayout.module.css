@@ -1,8 +1,0 @@
-.layout {
-	height: 100dvh;
-	display: grid;
-	grid-template-columns: 20rem 1fr;
-	grid-template-rows: 10rem 1fr;
-	background-color: var(--bg-color-1);
-	color: white;
-}

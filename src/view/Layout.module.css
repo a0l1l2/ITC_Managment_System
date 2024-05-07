@@ -1,0 +1,98 @@
+.layout {
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 30rem 1fr;
+	grid-template-rows: 10rem 1fr;
+	overflow: hidden;
+}
+
+.sidebar {
+	background-color: var(--bg-color-1);
+	grid-row: span 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5rem;
+	padding-block: 3rem;
+}
+.header {
+	background-color: var(--bg-color-1);
+	border-left: 1px solid var(--bd-color-1);
+}
+
+img {
+	width: 10rem;
+	aspect-ratio: 1;
+	border-radius: 50%;
+}
+
+.links {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex: 0.4;
+}
+
+.links > * {
+	width: 100%;
+	border-bottom: 1px solid var(--bd-color-1);
+	padding: 2rem 4rem;
+	font-size: 1.8rem;
+	color: var(--ft-color-1);
+	text-decoration: none;
+	font-weight: 600;
+	transition: all 150ms;
+}
+
+.links :first-child {
+	border-top: 1px solid var(--bd-color-1);
+}
+
+.links > *:hover {
+	background-color: var(--bg-color-2);
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	padding-inline: 5rem;
+}
+
+.user {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 5rem;
+}
+
+.profile {
+	display: flex;
+	gap: 1rem;
+	color: var(--ft-color-1);
+}
+
+.userstatus {
+	display: flex;
+	gap: 2rem;
+	color: var(--ft-color-1);
+}
+
+.user div svg {
+	font-size: 3rem;
+}
+
+.userinfo {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.outlet {
+	padding: 2rem 3rem;
+}
+
+.outlet h1 {
+	font-size: 3rem;
+	margin-bottom: 2rem;
+}

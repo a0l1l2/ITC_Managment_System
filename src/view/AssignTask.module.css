@@ -1,0 +1,45 @@
+.gridAssign {
+	height: 100%;
+	padding: 2rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 3.5rem;
+	align-items: center;
+}
+
+.input,
+.select {
+	grid-column: 2/-1;
+	border: none;
+	border: 2px solid var(--bg-color-1);
+	border-radius: 0.5rem;
+	padding: 0.5rem 1rem;
+}
+
+.p {
+	grid-column: 1/2;
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.buttons {
+	display: flex;
+	gap: 1rem;
+	grid-column: 2/3;
+	justify-self: end;
+
+	> button,
+	a {
+		padding: 1.5rem;
+		text-decoration: none;
+		border-radius: 0.5rem;
+		background-color: var(--bg-color-1);
+		color: var(--ft-color-1);
+		font-weight: 600;
+		transition: all 150ms;
+	}
+}
+
+a:hover {
+	background-color: var(--bg-color-2);
+}
