@@ -2,14 +2,12 @@ import { useState } from 'react';
 import styles from './Tasks.module.css';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTasks } from '../model/TasksProvider';
 
 function Tasks() {
-	// const [tasks, setTasks] = useState();
-	// const [isModalOpen, setIsModalOpen] = useState(false);
+	const { tasks } = useTasks();
 
-	// function assignTask({}) {}
-
-	// useEffect(() => {}, tasks);
+	console.log(tasks);
 
 	return (
 		<>
@@ -25,60 +23,15 @@ function Tasks() {
 				</div>
 
 				<div className={styles.body}>
-					<div className={styles.row}>
-						<p>Create web-app for ITC</p>
-						<p>Paiwast</p>
-						<p>19/5/2024</p>
-						<p>
-							Create a fully functioning web-app based on the
-							previous assignments in SE301 class.
-						</p>
-						<p className={styles.tag}>High</p>
-					</div>
-
-					<div className={styles.row}>
-						<p>Create web-app for ITC</p>
-						<p>Paiwast</p>
-						<p>19/5/2024</p>
-						<p>
-							Create a fully functioning web-app based on the
-							previous assignments in SE301 class.
-						</p>
-						<p>High</p>
-					</div>
-					<div className={styles.row}>
-						<p>Create web-app for ITC</p>
-						<p>Paiwast</p>
-						<p>19/5/2024</p>
-						<p>
-							Create a fully functioning web-app based on the
-							previous assignments in SE301 class.
-						</p>
-						<p>High</p>
-					</div>
-					<div className={styles.row}>
-						<p>Create web-app for ITC</p>
-						<p>Paiwast</p>
-						<p>19/5/2024</p>
-						<p>
-							Create a fully functioning web-app based on the
-							previous Create a fully functioning web-app based on
-							the previous Create a fully functioning web-app
-							based on the previous assignments in SE301 class.
-						</p>
-						<p>High</p>
-					</div>
-					<div className={styles.row}>
-						<p>Create web-app for ITC</p>
-						<p>Paiwast</p>
-						<p>19/5/2024</p>
-						<p>
-							Create a fully functioning web-app based on the
-							previous assignments in SE301 class. assignments in
-							SE301 class. assignments in SE301 class.
-						</p>
-						<p>High</p>
-					</div>
+					{tasks.map(task => (
+						<div className={styles.row} key={task.id}>
+							<p>{task.title}</p>
+							<p>{task.member}</p>
+							<p>{task.deadline}</p>
+							<p>{task.description}</p>
+							<p className={styles.tag}>{task.priority}</p>
+						</div>
+					))}
 				</div>
 			</div>
 			<div className={styles.operations}>
