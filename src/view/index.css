@@ -12,6 +12,7 @@
 	--font-family: 'Rubik', sans-serif;
 	--bg-color-1: #2c4e80;
 	--bg-color-2: #0e46a3;
+	--bg-color-3: #1679AB;
 	--bd-color-1: #9ac8cd;
 	--ft-color-1: #e1f7f5;
 	--ft-color-2: #9ac8cd;
@@ -31,7 +32,7 @@ button {
 }
 
 a.active {
-	background-color: var(--bg-color-2);
+	background-color: var(--bg-color-3);
 }
 
 ::-webkit-scrollbar {

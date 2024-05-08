@@ -1,13 +1,18 @@
-import { useState } from 'react';
+
 import styles from './Tasks.module.css';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useTasks } from '../model/TasksProvider';
+import { useTasks } from '../controller/TasksProvider';
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 function Tasks() {
 	const { tasks } = useTasks();
 
-	console.log(tasks);
+const tags = {
+	low: styles.tagLow,
+	medium: styles.tagMedium,
+	high: styles.tagHigh,
+}
 
 	return (
 		<>
@@ -23,19 +28,22 @@ function Tasks() {
 				</div>
 
 				<div className={styles.body}>
-					{tasks.map(task => (
+					
+					{tasks.length ? tasks.map(task => (
 						<div className={styles.row} key={task.id}>
-							<p>{task.title}</p>
-							<p>{task.member}</p>
-							<p>{task.deadline}</p>
-							<p>{task.description}</p>
-							<p className={styles.tag}>{task.priority}</p>
+							<p>{task.title || '-'}</p>
+							<p>{task.member || '-'}</p>
+							<p>{task.deadline || '-'}</p>
+							<p>{task.description || '-'}</p>
+							<p className={tags[task.priority?.toLowerCase()]}>{task.priority || '-'}</p>
 						</div>
-					))}
+					)) : <div className={styles.spinner}><ClipLoader color={'#00215E'}/></div>}
+
+			
 				</div>
 			</div>
 			<div className={styles.operations}>
-				<Link to="/assignTask">Assign Task</Link>
+				<Link to="/assigntask">Assign Task</Link>
 			</div>
 		</>
 	);

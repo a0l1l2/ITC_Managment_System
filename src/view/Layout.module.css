@@ -37,24 +37,35 @@ img {
 	width: 100%;
 	border-bottom: 1px solid var(--bd-color-1);
 	padding: 2rem 4rem;
-	font-size: 1.8rem;
+	font-size: 1.6rem;
 	color: var(--ft-color-1);
 	text-decoration: none;
 	font-weight: 600;
 	transition: all 150ms;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	
 }
 
-.links :first-child {
+.links a:first-child {
 	border-top: 1px solid var(--bd-color-1);
+	svg {
+		border: none;
+}
+}
+
+svg{
+	font-size: 1.6rem;
 }
 
 .links > *:hover {
-	background-color: var(--bg-color-2);
+	background-color: var(--bg-color-3);
 }
 
 .header {
 	display: flex;
-	align-items: center;
 	padding-inline: 5rem;
 }
 
@@ -62,20 +73,32 @@ img {
 	width: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	gap: 5rem;
+	gap: 2rem;
 }
 
 .profile {
 	display: flex;
+	flex-direction: column;
 	gap: 1rem;
 	color: var(--ft-color-1);
+	padding: 1rem 1.5rem;background-color: var(--bg-color-3);
+		width: 15rem;
+		border-radius: 0.5rem;
+	> p {
+		font-size: 1.5rem;
+	}
 }
 
 .userstatus {
 	display: flex;
 	gap: 2rem;
 	color: var(--ft-color-1);
+	
+	p{ 
+		padding: 1rem 1.5rem;background-color: var(--bg-color-3);
+		width: 15rem;
+		border-radius: 0.5rem;
+	}
 }
 
 .user div svg {
@@ -86,6 +109,8 @@ img {
 	display: flex;
 	align-items: center;
 	gap: 2rem;
+	font-size: 0.8rem;
+	opacity: 0.8;
 }
 
 .outlet {
@@ -95,4 +120,10 @@ img {
 .outlet h1 {
 	font-size: 3rem;
 	margin-bottom: 2rem;
+}
+
+.title{
+	font-size: 2rem;
+	color: white;
+	font-weight: 600;
 }

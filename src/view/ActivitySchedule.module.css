@@ -19,7 +19,7 @@
 }
 
 .operations button:hover {
-	background-color: var(--bg-color-2);
+	background-color: var(--bg-color-3);
 }
 
 .body {
@@ -71,5 +71,5 @@ button {
 }
 
 button:hover {
-	background-color: var(--bg-color-2);
+	background-color: var(--bg-color-3);
 }

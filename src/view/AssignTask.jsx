@@ -1,13 +1,13 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './AssignTask.module.css';
-import { useTasks } from '../model/TasksProvider';
+import { useTasks } from '../controller/TasksProvider';
 import { useState } from 'react';
-import { MdErrorOutline } from 'react-icons/md';
 import toast from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast';
+import { getTasks } from '../model/getTasks';
+import { uploadTask } from '../model/uploadTask';
 
 function AssignTask() {
-	const navigate = useNavigate();
 	const { dispatch } = useTasks();
 
 	const [title, setTitle] = useState('');
@@ -16,17 +16,18 @@ function AssignTask() {
 	const [priority, setPriority] = useState('');
 	const [member, setMember] = useState('');
 
-	function assignTask(e) {
+	async function assignTask(e) {
 		e.preventDefault();
 		if (!title || !description || !deadline || !priority || !member) {
 			toast.error('Please fill out all of the forms!');
 			return;
 		}
+		await uploadTask({ title, deadline, description, priority });
+		const {tasks,error} = await getTasks();
 		dispatch({
 			type: 'tasks/assignTask',
-			payload: { title, member, deadline, description, priority },
+			payload:tasks
 		});
-
 		setTitle('');
 		setDescription('');
 		setDeadline('');
@@ -38,7 +39,9 @@ function AssignTask() {
 	return (
 		<>
 			<Toaster />
-			<form className={styles.gridAssign}>
+			<form >
+				<div className={styles.gridAssign}>
+
 				<p className={styles.p}>Title</p>
 				<input
 					type="text"
@@ -96,9 +99,10 @@ function AssignTask() {
 					<option value="id-2">Member 2</option>
 					<option value="id-3">Member 3</option>
 				</select>
+				</div>
 				<div className={styles.buttons}>
-					<Link to={'/'}>Cancel</Link>
-					<button onClick={assignTask}>Assign task</button>
+					<Link to={'/'}>Go back</Link>
+					<button onClick={assignTask}>Assign</button>
 				</div>
 			</form>
 		</>

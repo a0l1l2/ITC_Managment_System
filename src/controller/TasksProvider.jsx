@@ -1,16 +1,9 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useEffect, useReducer } from 'react';
+import { getTasks } from '../model/getTasks';
+import Tasks from '../view/Tasks';
 
 const initialState = {
-	tasks: [
-		{
-			id: 1,
-			title: 'Sleep well',
-			memeber: 'Paiwast',
-			deadline: 'Now',
-			description: 'Sleep or your head will explode',
-			priority: 'High',
-		},
-	],
+	tasks: [],
 };
 
 function reducer(state, { type, payload }) {
@@ -18,8 +11,9 @@ function reducer(state, { type, payload }) {
 		case 'tasks/assignTask':
 			return {
 				...state,
-				tasks: [...state.tasks, payload],
+				tasks: payload,
 			};
+		
 	}
 }
 
@@ -27,6 +21,19 @@ const TasksContext = createContext();
 
 function TasksProvider({ children }) {
 	const [{ tasks }, dispatch] = useReducer(reducer, initialState);
+
+	useEffect(()=>{
+		async function fetchTasks(){
+			const {tasks:fetchedTasks,error} = await getTasks();
+
+			dispatch({type:'tasks/assignTask', payload:fetchedTasks})
+		}
+
+		fetchTasks();
+		
+	},[])
+
+
 
 	return (
 		<TasksContext.Provider value={{ tasks, dispatch }}>

@@ -1,34 +1,63 @@
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation} from 'react-router-dom';
 import styles from './Layout.module.css';
 import { LuUserCircle2 } from 'react-icons/lu';
-import { TasksProvider } from '../model/TasksProvider';
+import { TasksProvider } from '../controller/TasksProvider';
+import { FaTasks } from "react-icons/fa";
+import { AiOutlineSchedule } from "react-icons/ai";
+import { GrAnnounce } from "react-icons/gr";
+import { MdOutlineManageAccounts } from "react-icons/md";
 
 function Layout() {
+
+	const location = useLocation();
+	
+
 	return (
 		<TasksProvider>
 			<div className={styles.layout}>
 				<div className={styles.sidebar}>
 					<img src="./public/images/ITC_logo.png" alt="ITC logo" />
+					<p className={styles.title}>ITC Managment</p>
 					<div className={styles.links}>
-						<NavLink to="/">Tasks</NavLink>
+					
+						<NavLink to="/" className={location.pathname.includes('assigntask') &&'active'}>
+						<FaTasks /><span>
+							Tasks
+							</span>
+							</NavLink>
 
 						<NavLink to="activityschedule">
+						<AiOutlineSchedule />
+							<span>
 							Activity Schedule
+							</span>
 						</NavLink>
 
-						<NavLink to="announcments">Announcments</NavLink>
+						<NavLink to="announcements">
+						<GrAnnounce />
+							<span>
+							Announcements
+							</span>
+							</NavLink>
 
-						<NavLink to="register">Register new member</NavLink>
+						<NavLink to="registermember">
+						<MdOutlineManageAccounts />
+							<span>
+							Register member
+							</span>
+							</NavLink>
 					</div>
 				</div>
 
 				<div className={styles.header}>
 					<div className={styles.user}>
 						<div className={styles.profile}>
-							<LuUserCircle2 />
+							<p>
+								Paiwast Wahid
+								</p>
 							<div className={styles.userinfo}>
-								<p>username</p>
-								<p>email</p>
+								
+								<p>paiwastmain@gmail.com</p>
 							</div>
 						</div>
 
