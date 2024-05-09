@@ -1,6 +1,5 @@
 import toast, { Toaster } from 'react-hot-toast';
 import styles from './RegisterMember.module.css';
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { uploadMember } from '../model/uploadMember';
 import { useMembers } from '../controller/MembersProvider';
@@ -35,8 +34,8 @@ function RegisterMember() {
 			return;
 		}
 		await uploadMember({ fullName, email, password });
-		const { members, error } = await getMembers();
-		console.log(members);
+		const { members } = await getMembers();
+
 		dispatch({
 			type: 'members/registerMember',
 			payload: members,
