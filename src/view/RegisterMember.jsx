@@ -5,14 +5,19 @@ import { useState } from 'react';
 import { uploadMember } from '../model/uploadMember';
 import { useMembers } from '../controller/MembersProvider';
 import { getMembers } from '../model/getMembers';
+import { VscEye } from 'react-icons/vsc';
+import { VscEyeClosed } from 'react-icons/vsc';
 
 function RegisterMember() {
 	const { dispatch } = useMembers();
 
-	const [fullName, setFullName] = useState('p');
-	const [email, setEmail] = useState('p');
-	const [password, setPassword] = useState('pppppppp');
-	const [confirmPassword, setConfirmPassword] = useState('ppp');
+	const [fullName, setFullName] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [confirmPassword, setConfirmPassword] = useState('');
+	const [position, setPosition] = useState('');
+	const [showPass, setShowPass] = useState(false);
+	const [showConPass, setShowConPass] = useState(false);
 
 	async function register(e) {
 		e.preventDefault();
@@ -68,9 +73,16 @@ function RegisterMember() {
 						}}
 					/>
 
+					<div
+						className={styles.icon}
+						onClick={() => setShowPass(cur => !cur)}
+					>
+						{showPass ? <VscEye /> : <VscEyeClosed />}
+					</div>
+
 					<p className={styles.p}>Password</p>
 					<input
-						type="password"
+						type={showPass ? 'text' : 'password'}
 						className={styles.input}
 						value={password}
 						onChange={e => {
@@ -78,9 +90,16 @@ function RegisterMember() {
 						}}
 					/>
 
+					<div
+						className={styles.icon}
+						onClick={() => setShowConPass(cur => !cur)}
+					>
+						{showConPass ? <VscEye /> : <VscEyeClosed />}
+					</div>
+
 					<p className={styles.p}>Confirm password</p>
 					<input
-						type="password"
+						type={showConPass ? 'text' : 'password'}
 						className={styles.input}
 						value={confirmPassword}
 						onChange={e => {
@@ -89,7 +108,11 @@ function RegisterMember() {
 					/>
 
 					<p className={styles.p}>Position</p>
-					<select className={styles.select}>
+					<select
+						className={styles.select}
+						value={position}
+						onChange={e => setPosition(e.target.value)}
+					>
 						<option>Select position</option>
 						<option value="writer">Writer</option>
 						<option value="graphic-designer">
@@ -98,7 +121,6 @@ function RegisterMember() {
 					</select>
 				</div>
 				<div className={styles.buttons}>
-					<Link to={'/'}>Cancel</Link>
 					<button onClick={register}>Register</button>
 				</div>
 			</form>

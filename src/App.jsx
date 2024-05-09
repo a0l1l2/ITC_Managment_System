@@ -1,4 +1,4 @@
-import {  RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Tasks from './view/Tasks';
 import Layout from './view/Layout';
@@ -6,6 +6,7 @@ import ActivitySchedule from './view/ActivitySchedule';
 import AssignTask from './view/AssignTask';
 import RegisterMember from './view/RegisterMember';
 import Announcements from './view/Announcements';
+import Login from './view/Login';
 
 const router = createBrowserRouter([
 	{
@@ -33,11 +34,14 @@ const router = createBrowserRouter([
 			},
 		],
 	},
+	{
+		element: <Login />,
+		path: '/login',
+	},
 ]);
 
 function App() {
 	return <RouterProvider router={router} />;
-	
 }
 
 export default App;
