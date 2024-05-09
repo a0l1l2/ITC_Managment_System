@@ -96,7 +96,6 @@ svg {
 	p {
 		padding: 1rem 1.5rem;
 		background-color: var(--bg-color-3);
-		width: 15rem;
 		border-radius: 0.5rem;
 	}
 }

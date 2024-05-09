@@ -72,6 +72,13 @@ function Layout() {
 								<p>
 									Branch: <span>1</span>
 								</p>
+
+								<p>
+									DEV only:
+									<button onClick={uploadMembers}>
+										Upload members
+									</button>
+								</p>
 							</div>
 						</div>
 					</div>
