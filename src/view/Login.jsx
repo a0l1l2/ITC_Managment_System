@@ -4,8 +4,11 @@ import { useState } from 'react';
 import { VscEye } from 'react-icons/vsc';
 import { VscEyeClosed } from 'react-icons/vsc';
 import { login } from '../model/login';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+	const navigate = useNavigate();
+
 	const [email, setEmail] = useState('user@gmail.com');
 	const [password, setPassword] = useState('12341234');
 	const [showPass, setShowPass] = useState(false);
@@ -19,8 +22,9 @@ function Login() {
 		const { data, error } = await login(email, password);
 		console.log(data);
 		if (error) toast.error(error.message);
-		// setEmail('');
-		// setPassword('');
+		setEmail('');
+		setPassword('');
+		navigate('/');
 	}
 
 	return (

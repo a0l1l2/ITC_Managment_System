@@ -44,6 +44,7 @@ function RegisterMember() {
 		setEmail('');
 		setPassword('');
 		setConfirmPassword('');
+		setPosition('');
 		toast.success(`Member registered succesfully!`);
 	}
 

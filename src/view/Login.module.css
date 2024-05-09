@@ -75,7 +75,7 @@ div:has(> .input) {
 	flex: 1;
 }
 
-button {
+.login button {
 	padding: 1.5rem;
 	text-decoration: none;
 	border-radius: 0.5rem;
@@ -99,7 +99,7 @@ a:hover {
 	color: var(--bg-color-1);
 	grid-column: 2/-1;
 	position: absolute;
-	right: 1rem;
+	right: 1.5rem;
 	top: 50%;
 	transform: translateY(-50%);
 }
