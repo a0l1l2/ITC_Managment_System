@@ -6,6 +6,7 @@ import { FaTasks } from "react-icons/fa";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { GrAnnounce } from "react-icons/gr";
 import { MdOutlineManageAccounts } from "react-icons/md";
+import { MembersProvider } from '../controller/MembersProvider';
 
 function Layout() {
 
@@ -13,6 +14,7 @@ function Layout() {
 	
 
 	return (
+		<MembersProvider>
 		<TasksProvider>
 			<div className={styles.layout}>
 				<div className={styles.sidebar}>
@@ -83,6 +85,7 @@ function Layout() {
 				</div>
 			</div>
 		</TasksProvider>
+		</MembersProvider>
 	);
 }
 
