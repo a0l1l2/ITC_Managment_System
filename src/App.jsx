@@ -7,14 +7,19 @@ import AssignTask from './view/AssignTask';
 import RegisterMember from './view/RegisterMember';
 import Announcements from './view/Announcements';
 import Login from './view/Login';
+import { UserProvider } from './controller/UserProvider';
 
 const router = createBrowserRouter([
 	{
-		element: <Layout />,
+		element: (
+			<UserProvider>
+				<Layout />
+			</UserProvider>
+		),
 		children: [
 			{
 				element: <Tasks />,
-				path: '/',
+				path: '/tasks',
 			},
 			{
 				element: <AssignTask />,
@@ -35,8 +40,12 @@ const router = createBrowserRouter([
 		],
 	},
 	{
-		element: <Login />,
-		path: '/login',
+		element: (
+			<UserProvider>
+				<Login />
+			</UserProvider>
+		),
+		path: '/',
 	},
 ]);
 

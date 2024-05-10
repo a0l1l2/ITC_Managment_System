@@ -3,11 +3,13 @@ import styles from './Login.module.css';
 import { useState } from 'react';
 import { VscEye } from 'react-icons/vsc';
 import { VscEyeClosed } from 'react-icons/vsc';
-import { login } from '../model/login';
+import { getCurrentUser, login } from '../model/login';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../controller/UserProvider';
 
 function Login() {
 	const navigate = useNavigate();
+	const { setUser } = useUser();
 
 	const [email, setEmail] = useState('user@gmail.com');
 	const [password, setPassword] = useState('12341234');
@@ -19,12 +21,15 @@ function Login() {
 			toast.error('Please provide your email and password');
 			return;
 		}
-		const { data, error } = await login(email, password);
-		console.log(data);
+		const { error } = await login(email, password);
 		if (error) toast.error(error.message);
+		const { isAuthenticated } = await getCurrentUser();
+		setUser({ email, password });
 		setEmail('');
 		setPassword('');
-		navigate('/');
+		if (isAuthenticated) {
+			navigate('/tasks');
+		}
 	}
 
 	return (

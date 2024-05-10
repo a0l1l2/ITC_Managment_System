@@ -7,9 +7,26 @@ import { GrAnnounce } from 'react-icons/gr';
 import { MdOutlineManageAccounts } from 'react-icons/md';
 import { MembersProvider } from '../controller/MembersProvider';
 import { uploadMembers } from '../model/uploadMember';
+import { useEffect, useState } from 'react';
+import { getCurrentUser, getCurrentUserInfo } from '../model/login';
+import { useUser } from '../controller/UserProvider';
 
 function Layout() {
 	const location = useLocation();
+	const { user } = useUser();
+
+	const [userInfo, setUserInfo] = useState();
+	console.log(userInfo);
+	useEffect(() => {
+		async function getUser() {
+			const { info, branch } = await getCurrentUserInfo(
+				user.email,
+				user.password
+			);
+			setUserInfo({ user: info[0], branch: branch[0] });
+		}
+		getUser();
+	}, [user]);
 
 	return (
 		<MembersProvider>
@@ -23,7 +40,7 @@ function Layout() {
 						<p className={styles.title}>ITC Managment</p>
 						<div className={styles.links}>
 							<NavLink
-								to="/"
+								to="/tasks"
 								className={
 									location.pathname.includes('assigntask') &&
 									'active'
@@ -53,9 +70,9 @@ function Layout() {
 					<div className={styles.header}>
 						<div className={styles.user}>
 							<div className={styles.profile}>
-								<p>Paiwast Wahid</p>
+								<p>{userInfo?.user.fullName}</p>
 								<div className={styles.userinfo}>
-									<p>paiwastmain@gmail.com</p>
+									<p>{userInfo?.user.email}</p>
 								</div>
 							</div>
 
@@ -64,20 +81,7 @@ function Layout() {
 									Logged in as: <span>Manager</span>
 								</p>
 								<p>
-									Role: <span>Writer</span>
-								</p>
-								<p>
-									Team: <span>Writing Team</span>
-								</p>
-								<p>
-									Branch: <span>1</span>
-								</p>
-
-								<p>
-									DEV only:
-									<button onClick={uploadMembers}>
-										Upload members
-									</button>
+									Branch: <span>{userInfo?.branch.name}</span>
 								</p>
 							</div>
 						</div>
