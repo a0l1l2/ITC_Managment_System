@@ -8,14 +8,14 @@
 }
 
 .operations button {
-	background: none;
-	border: none;
+	padding: 1.5rem;
+	text-decoration: none;
 	border-radius: 0.5rem;
-	padding: 0.5rem 2rem;
 	background-color: var(--bg-color-1);
 	color: var(--ft-color-1);
 	font-weight: 600;
 	transition: all 150ms;
+	font-size: 1.2rem;
 }
 
 .operations button:hover {
@@ -34,7 +34,7 @@
 
 .header {
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	padding: 1rem 1.5rem;
 	background-color: var(--bg-color-1);
 	color: var(--ft-color-1);
@@ -48,7 +48,7 @@
 	display: grid;
 	border-bottom: 1px solid var(--bg-color-1);
 	padding: 1rem;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	align-items: center;
 	text-align: center;
 }

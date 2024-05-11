@@ -8,6 +8,7 @@ import RegisterMember from './view/RegisterMember';
 import Announcements from './view/Announcements';
 import Login from './view/Login';
 import { UserProvider } from './controller/UserProvider';
+import EditActivity from './view/EditActivity';
 
 const router = createBrowserRouter([
 	{
@@ -28,6 +29,12 @@ const router = createBrowserRouter([
 			{
 				element: <ActivitySchedule />,
 				path: '/activityschedule',
+				children: [
+					{
+						path: 'editactivity/:id',
+						element: <EditActivity />,
+					},
+				],
 			},
 			{
 				element: <Announcements />,

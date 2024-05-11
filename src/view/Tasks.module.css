@@ -25,7 +25,7 @@
 }
 
 .body {
-	height: 25rem;
+	height: 30rem;
 	overflow-y: scroll;
 	border: 2px solid var(--bg-color-1);
 	border-top: none;
