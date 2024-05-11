@@ -6,7 +6,6 @@ import { AiOutlineSchedule } from 'react-icons/ai';
 import { GrAnnounce } from 'react-icons/gr';
 import { MdOutlineManageAccounts } from 'react-icons/md';
 import { MembersProvider } from '../controller/MembersProvider';
-import { uploadMembers } from '../model/uploadMember';
 import { useEffect, useState } from 'react';
 import { getCurrentUser, getCurrentUserInfo } from '../model/login';
 import { useUser } from '../controller/UserProvider';
@@ -16,7 +15,6 @@ function Layout() {
 	const { user } = useUser();
 
 	const [userInfo, setUserInfo] = useState();
-	console.log(userInfo);
 	useEffect(() => {
 		async function getUser() {
 			const { info, branch } = await getCurrentUserInfo(
@@ -33,10 +31,7 @@ function Layout() {
 			<TasksProvider>
 				<div className={styles.layout}>
 					<div className={styles.sidebar}>
-						<img
-							src="./public/images/ITC_logo.png"
-							alt="ITC logo"
-						/>
+						<img src="/public/images/ITC_Logo.PNG" alt="ITC logo" />
 						<p className={styles.title}>ITC Managment</p>
 						<div className={styles.links}>
 							<NavLink

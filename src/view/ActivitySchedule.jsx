@@ -1,9 +1,24 @@
 import toast, { Toaster } from 'react-hot-toast';
 import styles from './ActivitySchedule.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getActivities } from '../model/getActivities';
+import { ClipLoader } from 'react-spinners';
+import { uploadActivities } from '../model/uploadActivities';
 
 function ActivitySchedule() {
 	const navigate = useNavigate();
+	const [activities, setActivities] = useState([]);
+
+	useEffect(() => {
+		async function fetchActivities() {
+			const fetchedActivities = await getActivities();
+
+			setActivities(fetchedActivities);
+		}
+
+		fetchActivities();
+	}, []);
 
 	return (
 		<div>
@@ -20,15 +35,32 @@ function ActivitySchedule() {
 				</div>
 
 				<div className={styles.body}>
-					<div className={styles.row}>
-						<p>Writing session</p>
-						<p>Writing Team</p>
-						<p>...</p>
-						<p>15/5/2024</p>
-						<button onClick={() => navigate(`editactivity${1}`)}>
-							Change date
-						</button>
-					</div>
+					{activities.length ? (
+						activities.map(activity => (
+							<div
+								className={styles.row}
+								key={activity.activity.id}
+							>
+								<p>{activity.activity.title}</p>
+								<p>{activity.teamInfo.name}</p>
+								<p>{activity.activity.description}</p>
+								<p>{activity.activity.date}</p>
+								<button
+									onClick={() =>
+										navigate(
+											`/editactivity/${activity.activity.id}`
+										)
+									}
+								>
+									Change date
+								</button>
+							</div>
+						))
+					) : (
+						<div className={styles.loader}>
+							<ClipLoader />
+						</div>
+					)}
 				</div>
 			</div>
 			<div className={styles.operations}>
@@ -39,6 +71,14 @@ function ActivitySchedule() {
 				>
 					Add activity
 				</button>
+				{/* <button
+					onClick={async function fecth() {
+						const error = await uploadActivities();
+						console.log(error);
+					}}
+				>
+					Upload activities(DEV only) (DO NOT CLICK)
+				</button> */}
 			</div>
 		</div>
 	);

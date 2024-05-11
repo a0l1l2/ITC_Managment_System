@@ -54,7 +54,8 @@ form {
 	}
 }
 
-a:hover {
+a:hover,
+.buttons button:hover {
 	background-color: var(--bg-color-3);
 }
 

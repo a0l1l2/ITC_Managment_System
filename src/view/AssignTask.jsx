@@ -122,7 +122,7 @@ function AssignTask() {
 					)}
 				</div>
 				<div className={styles.buttons}>
-					<Link to={'/'}>Go back</Link>
+					<Link to={'/tasks'}>Go back</Link>
 					<button onClick={assignTask}>Assign</button>
 				</div>
 			</form>
